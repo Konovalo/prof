@@ -29,7 +29,14 @@ with open("student_new.csv", "w", newline="") as file2:
             score = str(summ[i] / kol[i])[:-13]
         writer.writerow([id, name, title, clas, score])
 
-
+with open("students.csv", encoding="utf8") as file:
+    reader = csv.reader(file, delimiter=",")
+    answer = list(reader)[1:]
+    for i in range(len(answer)-1):
+        id, name, title, clas, score = answer[i]
+        if score == "None":
+            score = 0
+        #while i-1 > 0 and answer[i][4] > answer[i-1][4]:
 
 
 
